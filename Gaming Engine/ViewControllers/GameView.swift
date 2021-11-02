@@ -13,11 +13,22 @@ class GameView: MTKView {
     var commandQueue: MTLCommandQueue!
     var renderPipelineState: MTLRenderPipelineState!
     
-    let triangleVertices: [SIMD3<Float>] = [
-        SIMD3<Float>(0,1,0),
-        SIMD3<Float>(-0.5,-1,0),
-        SIMD3<Float>(1,0,0)
+    struct ColorVertex {
+        let position: SIMD3<Float>
+        let color: SIMD4<Float>
+    }
+    
+    let colorVerticesTriangle : [ColorVertex] = [
+        ColorVertex(position: SIMD3<Float>(0,1,0), color: SIMD4<Float>(1,1,1,1)),
+        ColorVertex(position: SIMD3<Float>(-0.5,-1,0), color: SIMD4<Float>(1,0,0,1)),
+        ColorVertex(position: SIMD3<Float>(1,0,0), color: SIMD4<Float>(0,0,1,1))
     ]
+    
+//    let triangleVertices: [SIMD3<Float>] = [
+//        SIMD3<Float>(0,1,0),
+//        SIMD3<Float>(-0.5,-1,0),
+//        SIMD3<Float>(1,0,0)
+//    ]
     
     var vertexBuffer: MTLBuffer!
     
@@ -36,8 +47,12 @@ class GameView: MTKView {
         
     }
     
+//    func createBuffers() {
+//        vertexBuffer = device?.makeBuffer(bytes: triangleVertices, length: MemoryLayout<SIMD3<Float>>.stride * triangleVertices.count, options: [])
+//    }
+    
     func createBuffers() {
-        vertexBuffer = device?.makeBuffer(bytes: triangleVertices, length: MemoryLayout<SIMD3<Float>>.stride * triangleVertices.count, options: [])
+        vertexBuffer = device?.makeBuffer(bytes: colorVerticesTriangle, length: MemoryLayout<ColorVertex>.stride * colorVerticesTriangle.count, options: [])
     }
     
     func createRenderPipelineState() {
@@ -72,7 +87,7 @@ class GameView: MTKView {
         //add more info to command encoder.
         
         renderCommandEncoder?.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-        renderCommandEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: triangleVertices.count)
+        renderCommandEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: colorVerticesTriangle.count)
         
         renderCommandEncoder?.endEncoding()
         commandBuffer.present(drawable)
