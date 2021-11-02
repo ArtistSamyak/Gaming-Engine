@@ -13,6 +13,14 @@ class GameView: MTKView {
     var commandQueue: MTLCommandQueue!
     var renderPipelineState: MTLRenderPipelineState!
     
+    let triangleVertices: [SIMD3<Float>] = [
+        SIMD3<Float>(0,1,0),
+        SIMD3<Float>(-0.5,-1,0),
+        SIMD3<Float>(1,0,0)
+    ]
+    
+    var vertexBuffer: MTLBuffer!
+    
     required init(coder: NSCoder) {
         super.init(coder: coder)
         
@@ -24,6 +32,12 @@ class GameView: MTKView {
         
         createRenderPipelineState()
         
+        createBuffers()
+        
+    }
+    
+    func createBuffers() {
+        vertexBuffer = device?.makeBuffer(bytes: triangleVertices, length: MemoryLayout<SIMD3<Float>>.stride * triangleVertices.count, options: [])
     }
     
     func createRenderPipelineState() {
@@ -56,6 +70,9 @@ class GameView: MTKView {
         renderCommandEncoder?.setRenderPipelineState(renderPipelineState)
         
         //add more info to command encoder.
+        
+        renderCommandEncoder?.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
+        renderCommandEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: triangleVertices.count)
         
         renderCommandEncoder?.endEncoding()
         commandBuffer.present(drawable)
