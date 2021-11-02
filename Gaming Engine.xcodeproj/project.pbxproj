@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		E32245152730E19A00956ACC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32245142730E19A00956ACC /* AppDelegate.swift */; };
-		E32245172730E19A00956ACC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32245162730E19A00956ACC /* ViewController.swift */; };
 		E322451A2730E19A00956ACC /* Gaming_Engine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E32245182730E19A00956ACC /* Gaming_Engine.xcdatamodeld */; };
 		E322451C2730E19C00956ACC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E322451B2730E19C00956ACC /* Assets.xcassets */; };
 		E322451F2730E19C00956ACC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E322451D2730E19C00956ACC /* Main.storyboard */; };
 		E322452A2730E19C00956ACC /* Gaming_EngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32245292730E19C00956ACC /* Gaming_EngineTests.swift */; };
 		E32245342730E19C00956ACC /* Gaming_EngineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32245332730E19C00956ACC /* Gaming_EngineUITests.swift */; };
 		E32245362730E19C00956ACC /* Gaming_EngineUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32245352730E19C00956ACC /* Gaming_EngineUITestsLaunchTests.swift */; };
+		E32245492730E76500956ACC /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32245482730E76500956ACC /* GameView.swift */; };
+		E322454C2730EED900956ACC /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = E322454B2730EED800956ACC /* Shaders.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,6 @@
 /* Begin PBXFileReference section */
 		E32245112730E19A00956ACC /* Gaming Engine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gaming Engine.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32245142730E19A00956ACC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E32245162730E19A00956ACC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E32245192730E19A00956ACC /* Gaming_Engine.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gaming_Engine.xcdatamodel; sourceTree = "<group>"; };
 		E322451B2730E19C00956ACC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E322451E2730E19C00956ACC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,6 +47,8 @@
 		E322452F2730E19C00956ACC /* Gaming EngineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gaming EngineUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32245332730E19C00956ACC /* Gaming_EngineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gaming_EngineUITests.swift; sourceTree = "<group>"; };
 		E32245352730E19C00956ACC /* Gaming_EngineUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gaming_EngineUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E32245482730E76500956ACC /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		E322454B2730EED800956ACC /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +99,13 @@
 		E32245132730E19A00956ACC /* Gaming Engine */ = {
 			isa = PBXGroup;
 			children = (
-				E32245142730E19A00956ACC /* AppDelegate.swift */,
-				E32245162730E19A00956ACC /* ViewController.swift */,
-				E322451B2730E19C00956ACC /* Assets.xcassets */,
-				E322451D2730E19C00956ACC /* Main.storyboard */,
+				E322454A2730EEC200956ACC /* Shaders */,
+				E32245442730E20400956ACC /* Storyboards */,
+				E32245472730E26D00956ACC /* ViewControllers */,
+				E32245452730E22600956ACC /* Model */,
+				E32245432730E1DD00956ACC /* App Delegate */,
+				E32245462730E24B00956ACC /* Assets */,
 				E32245202730E19C00956ACC /* Gaming_Engine.entitlements */,
-				E32245182730E19A00956ACC /* Gaming_Engine.xcdatamodeld */,
 			);
 			path = "Gaming Engine";
 			sourceTree = "<group>";
@@ -122,6 +125,54 @@
 				E32245352730E19C00956ACC /* Gaming_EngineUITestsLaunchTests.swift */,
 			);
 			path = "Gaming EngineUITests";
+			sourceTree = "<group>";
+		};
+		E32245432730E1DD00956ACC /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				E32245142730E19A00956ACC /* AppDelegate.swift */,
+			);
+			path = "App Delegate";
+			sourceTree = "<group>";
+		};
+		E32245442730E20400956ACC /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E322451D2730E19C00956ACC /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E32245452730E22600956ACC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E32245182730E19A00956ACC /* Gaming_Engine.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E32245462730E24B00956ACC /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E322451B2730E19C00956ACC /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		E32245472730E26D00956ACC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E32245482730E76500956ACC /* GameView.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E322454A2730EEC200956ACC /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				E322454B2730EED800956ACC /* Shaders.metal */,
+			);
+			path = Shaders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,8 +305,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E32245172730E19A00956ACC /* ViewController.swift in Sources */,
+				E322454C2730EED900956ACC /* Shaders.metal in Sources */,
 				E32245152730E19A00956ACC /* AppDelegate.swift in Sources */,
+				E32245492730E76500956ACC /* GameView.swift in Sources */,
 				E322451A2730E19A00956ACC /* Gaming_Engine.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +483,7 @@
 				DEVELOPMENT_TEAM = G9D632BTGH;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -458,6 +511,7 @@
 				DEVELOPMENT_TEAM = G9D632BTGH;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
