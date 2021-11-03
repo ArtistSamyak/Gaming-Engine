@@ -19,9 +19,13 @@ class GameView: MTKView {
     }
     
     let colorVerticesTriangle : [ColorVertex] = [
-        ColorVertex(position: SIMD3<Float>(0,1,0), color: SIMD4<Float>(1,1,1,1)),
-        ColorVertex(position: SIMD3<Float>(-0.5,-1,0), color: SIMD4<Float>(1,0,0,1)),
-        ColorVertex(position: SIMD3<Float>(1,0,0), color: SIMD4<Float>(0,0,1,1))
+        ColorVertex(position: SIMD3<Float>(-0.5,0,0), color: SIMD4<Float>(0.8,0.3,0.4,1)),
+        ColorVertex(position: SIMD3<Float>(-0.5,0.5,0), color: SIMD4<Float>(0.8,0.3,0.4,1)),
+        ColorVertex(position: SIMD3<Float>(0.5,0.5,0), color: SIMD4<Float>(1,1,1,1)),
+        
+        ColorVertex(position: SIMD3<Float>(-0.5,0,0), color: SIMD4<Float>(0.8,0.3,0.4,1)),
+        ColorVertex(position: SIMD3<Float>(0.5,0,0), color: SIMD4<Float>(1,1,1,1)),
+        ColorVertex(position: SIMD3<Float>(0.5,0.5,0), color: SIMD4<Float>(1,1,1,1))
     ]
     
 //    let triangleVertices: [SIMD3<Float>] = [
